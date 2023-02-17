@@ -78,3 +78,42 @@ for(let i in basaridurum){
 
 // Soru 7
 let toplamort = (ogrenci1_ort+ogrenci2_ort+ogrenci3_ort)/3;
+
+// Soru 8 - 10 ile 15 sayıları arasındaki tamsayıların çarpımını hesaplayıp ekrana yazdıran Javacsript kodunu yaz
+let carpim = 1;
+for(let i=10;i<16;i++){
+    carpim*=i;
+}
+console.log(`10 ile 15 arasındaki sayıların çarpımı:${carpim}`);
+
+// Soru 9 - 100 ile 200 sayılarının arasında 23 ün katı olan sayıların toplamını hesaplayıp ekrana yazdıran Javascript kodunu yaz
+let toplamm = 0; // global scope'ta let ile iki tane aynı isimde değişken tanımlanamaz!
+for(let i=100;i<201;i++){
+    if(i%23==0){
+        toplam+=i;
+    }
+}
+console.log(`100 ile 200 arasında 23'e ta bölünen sayıların toplamı:${toplamm}`)
+
+// Soru 10 - Günlük 210 ton yağ rafine etme ve işleme kapasitesine sahip bir fabrikanın 7550 tonluk üretimi karşılamak için kaç gün çalışması gerektiğini ve çalışma sonucu kaç ton zeytinyağı üretileceğini hesaplayan Javascript kodunu yaz.
+let sayac=0;
+for(let i=0;i<=7550;i+=210){
+    sayac+=1;
+}
+console.log(`Gereken gün sayısı:${sayac}`);
+
+// Soru 11 - Bir yatırımın sabit maliyeti $500.000 ve değişken maliyetleri ise yıllık $14.000 olarak hesaplanmıştır. Yatırımın ekonomik ömrü 17 yıl ve 17 yıl sonunda yatırımdan elde edilecek toplam gelir $1.700.000 olduğuna göre Yatırımın kar zarar miktarını hesaplayan Javascript kodunu yaz
+let maliyet = 500000;
+for(let i=1;i<=17;i++){
+    maliyet+=14000;
+}
+
+karzarar = 1700000 - maliyet;
+console.log(`Yatırımın kar-zarar bilançosu:${karzarar}`);
+
+// Soru 12 - Günlük 1150 şişe süt üreten bir tesisin 24 günlük kümülatif süt üretimini alt alta ekrana yazdıran Javascript kodunu yaz.
+let üretim = 0;
+for(let i=1;i<=24;i++){
+    üretim+=1150;
+}
+console.log(`24 günde toplam ${üretim} adet şişe süt üretilmiştir.`)

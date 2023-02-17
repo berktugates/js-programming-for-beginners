@@ -53,4 +53,16 @@ function toplam(){
     console.log(toplam);
 }
 
-toplam(2,5,6)
+//  Soru 6 - Fonksiyon kullanarak yarıçapı girilen dairenin alanını hesapla
+function daireAlan(r){
+    let alan = 3.14 * r * r;
+    console.log(`Alan:${alan}`);
+    return alan;
+}
+
+// Soru 7 - Fonksiyon kullanarak genişliği ve yüksekliği girilen dikdörtgenin alanını hesapla
+function dikdortgenAlan(genislik,yukseklik){
+    let alan = genislik*yukseklik;
+    console.log(`Dikdörtgenin alanı:${alan}`);
+    return alan;
+}
