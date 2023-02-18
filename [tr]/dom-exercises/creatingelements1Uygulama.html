@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Creating Elements 1</title>
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <div class="w-6/12 mx-auto flex justify-center bg-violet-600">
+            <div class="title p-4">
+                <h3 class="text-lg text-white">To-Do App</h3>
+            </div>
+        </div>
+        <div class="w-6/12 mx-auto pl-4 pb-4 pt-5 bg-gradient-to-r from-indigo-500">
+            <ul class="list-inside" id="task-list">
+                <li class="p-4">
+                    <input class="mr-2" type="checkbox" id="1">
+                    <label class="text-lg" for="1">Görev 1</label>
+                </li>
+                <li class="p-4">
+                    <input class="mr-2" type="checkbox" id="1">
+                    <label class="text-lg" for="1">Görev 2</label>
+                </li>
+                <li class="p-4">
+                    <input class="mr-2" type="checkbox" id="1">
+                    <label class="text-lg" for="1">Görev 3</label>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        let ul = document.getElementById("task-list");
+        let count = ul.children.length;
+            let li = 
+            `<li class="p-4">
+                <input class="mr-2" type="checkbox" id="${count+1}">
+                <label class="text-lg" for="${count+1}">Görev ${count+1}</label>
+            </li>
+            `;
+            ul.insertAdjacentHTML("beforeend",li);        
+    </script>
+</body>
+</html>

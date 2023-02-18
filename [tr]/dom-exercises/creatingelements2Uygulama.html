@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Creating Elements 2</title>
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <div class="w-6/12 mx-auto flex justify-center bg-violet-600">
+            <div class="title p-4">
+                <h3 class="text-lg text-white">To-Do App</h3>
+            </div>
+        </div>
+        <div class="w-6/12 mx-auto pl-4 pb-4 pt-5 bg-gradient-to-r from-indigo-500">
+            <ul class="list-inside" id="task-list">
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        let taskList = ["Görev 1","Görev 2","Görev 3"]
+        let ul = document.getElementById("task-list");
+        for(let i in taskList){
+            let li = 
+            `
+             <li class="p-4">
+                <input class="mr-2" type="checkbox" id="${i+1}">
+                <label class="text-lg" for="${i+1}">${taskList[i]}</label>
+             </li>  
+            `;
+            ul.insertAdjacentHTML("beforeend",li);
+        }
+
+    </script>
+</body>
+</html>
