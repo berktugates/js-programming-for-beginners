@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <title>Add New Task</title>
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <div class="w-6/12 mx-auto bg-violet-600">
+            <div class="title p-4">
+                <h3 class="text-xl font-extrabold text-white text-center p-2">To-Do App</h3>
+                <hr>
+            </div>
+            <div id="add-delete-element p-4">
+                <input id="taskinput" class="w-2/3 mb-2 ml-4 pb-2 p-2 rounded-md" type="text">
+                <span class="ml-4">
+                    <button id="addTask" type="button" class="text-white bg-green-700 font-medium rounded-lg text-sm px-4 py-2.5 ml-4 mr-3">Add</button>
+                    <button id ="deleteTask" type="button" class="text-white bg-red-700 font-medium rounded-lg text-sm px-3 py-2.5 ">Delete</button> 
+                </span>
+            </div>
+        </div>
+        <div class="w-6/12 mx-auto pl-4 pb-4 pt-5 bg-gradient-to-r from-indigo-500">
+            <ul class="list-inside" id="task-list">
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        let ul = document.querySelector("#task-list");
+        let taskList =[
+        {
+            "id":1,
+            "gorevadi":"Görev 1"
+        },
+        {
+            "id":2,
+            "gorevadi":"Görev 2"
+        }
+    ];
+        displayTasks();
+
+        // Görevleri listeliyorum    
+        function displayTasks(){
+            ul.innerHTML="";
+            for(let i in taskList){
+                let li = 
+            `
+                <li class="flex justify-between p-4 mb-2 border-2 rounded-md">
+                    <div>
+                        <input id="${taskList[i].id}" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label class="text-lg font-bold ml-4" for="">${taskList[i].gorevadi}</label>
+                    </div>
+                    
+                    <div class="dropdown">
+                    <a class="btn bg-blue-100 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a onclick="deleteTask(${taskList[i].id})" class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Delete</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen"></i> Edit</a></li>
+                    </ul>
+                    </div>
+
+                </li>
+            `;
+            ul.insertAdjacentHTML("beforeend",li);
+            }
+        }
+
+        let addTaskButton = document.querySelector("#addTask");
+        let deleteTasksButton = document.querySelector("#deleteTask");
+        
+        //Görev Ekleme Eventi
+        addTaskButton.addEventListener("click",function(event){
+            let input = document.querySelector("#taskinput");
+            if(input.value==""){
+                alert("Yapacak çok işin olduğunu biliyorum. Boş bırakamazsın :)")
+            }
+            else{
+                taskList.push({
+                "id":taskList.length,
+                "gorevadi":input.value
+                
+            });
+            input.value="";
+            displayTasks();
+            }
+            event.preventDefault();            
+        });
+
+        //Görevleri Toplu Silme Eventi
+        deleteTasksButton.addEventListener("click",function(){
+            console.log("Hello World ");
+        });
+
+        // Görev Silmek için Fonksiyon
+        function deleteTask(id){
+            let silinecekEleman;
+            for(let index in taskList){
+                if(taskList[index].id == id){
+                    silinecekEleman = index;
+                }
+                    
+            }
+            taskList.splice(silinecekEleman,1); 
+            displayTasks();
+         }
+
+         
+ 
+             
+    </script>
+</body>
+</html>
